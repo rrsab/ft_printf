@@ -30,4 +30,7 @@ int     ft_print_string(char *str, t_flags flags);
 int     ft_putchar(char c);
 int     ft_putstr_precision(char *str, int precision);
 int     ft_print_width(int width, int precision, int zero);
+int     ft_print_char(char c, t_flags flags);
+int     ft_print_percent(t_flags flags);
+int     ft_print_pointer(unsigned long long pointer, t_flags flags);
 #endif

@@ -37,12 +37,12 @@ static int      ft_parse_input(const char *str, int i, va_list ap, t_flags *flag
         i++;
     }
 
-    printf("\nflags.zero     =%d\n", flags->zero);
-    printf("flags.minus    =%d\n", flags->minus);
-    printf("flags.width    =%d\n", flags->width);
-    printf("flags.star     =%d\n", flags->star);
-    printf("flags.precision=%d\n", flags->precision);
-    printf("flags.type     =%d\n", flags->type);
+//    printf("\nflags.zero     =%d\n", flags->zero);
+//    printf("flags.minus    =%d\n", flags->minus);
+//    printf("flags.width    =%d\n", flags->width);
+//    printf("flags.star     =%d\n", flags->star);
+//    printf("flags.precision=%d\n", flags->precision);
+//    printf("flags.type     =%d\n", flags->type);
 
     return (i);
 }
@@ -62,6 +62,8 @@ static int      ft_input(const char *str, va_list ap)
             break ;
         else if (str[i] != '%')
             count += ft_putchar(str[i]);
+        else if (str[i] == '%' && str[i + 1] == '%')
+            count += ft_putchar(str[i++]);
         else if (str[i] == '%' && str[i + 1])
         {
             i = ft_parse_input(str, ++i, ap, &flags);
