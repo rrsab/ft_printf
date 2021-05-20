@@ -13,6 +13,8 @@ int ft_print_parse(int c, t_flags flags, va_list ap)
         count = ft_print_percent(flags);
 //    if (c == 'p')
 //        count = ft_print_pointer(va_arg(ap, unsigned long long ), flags);
+	if (c == 'i' || c == 'd')
+		count = ft_print_digit(va_arg(ap, int), flags);
     return (count);
 }
 

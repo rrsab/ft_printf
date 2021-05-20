@@ -33,4 +33,5 @@ int     ft_print_width(int width, int precision, int zero);
 int     ft_print_char(char c, t_flags flags);
 int     ft_print_percent(t_flags flags);
 int     ft_print_pointer(unsigned long long pointer, t_flags flags);
+int		ft_print_digit(int d, t_flags flags);
 #endif
