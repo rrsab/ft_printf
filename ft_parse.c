@@ -24,7 +24,7 @@ t_flags ft_flag_width(va_list ap, t_flags flags)
     return (flags);
 }
 
-int ft_flag_precision(char *str, int i, va_list ap, t_flags *flags)
+int ft_flag_precision(const char *str, int i, va_list ap, t_flags *flags)
 {
     i++;
     if (str[i] == '*')

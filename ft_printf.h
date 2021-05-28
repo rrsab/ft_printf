@@ -22,7 +22,7 @@ int     ft_printf(const char *format, ...);
 int     ft_check_type(int c);
 int     ft_check_flag(int c);
 t_flags ft_flag_width(va_list ap, t_flags flags);
-int     ft_flag_precision(char *str, int i, va_list ap, t_flags *flags);
+int     ft_flag_precision(const char *str, int i, va_list ap, t_flags *flags);
 t_flags ft_flag_minus(t_flags flags);
 t_flags ft_flag_digit(char c, t_flags flags);
 int     ft_print_parse(int c, t_flags flags, va_list ap);
@@ -34,4 +34,8 @@ int     ft_print_char(char c, t_flags flags);
 int     ft_print_percent(t_flags flags);
 int     ft_print_pointer(unsigned long long pointer, t_flags flags);
 int		ft_print_digit(int d, t_flags flags);
+char 	*ft_itoa_base(unsigned long long num, int base);
+int 	ft_print_udigit(unsigned int d, t_flags flags);
+char	*ft_itoa_u(unsigned int n);
+int		ft_print_hex(unsigned int d, int xX, t_flags flags);
 #endif

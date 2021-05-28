@@ -1,11 +1,11 @@
 #include "ft_printf.h"
 
-int	ft_putchar(char c)
+int			ft_putchar(char c)
 {
     return write(1, &c, 1);
 }
 
-int	ft_putstr_precision(char *str, int precision)
+int			ft_putstr_precision(char *str, int precision)
 {
     int	res;
 
@@ -18,4 +18,42 @@ int	ft_putstr_precision(char *str, int precision)
         str++;
     }
     return (res);
+}
+
+static char	*ft_base(unsigned long long num, int base, int count, char *str)
+{
+	while (num != 0)
+	{
+		if (( num % base) < 10)
+			str[count - 1] = (num % base) + 48;
+		else
+			str[count - 1] = (num % base) + 55;
+		num = num / base;
+		count--;
+	}
+	return (str);
+}
+
+char	*ft_itoa_base(unsigned long long num, int base)
+{
+	unsigned long long	tmp;
+	int 				count;
+	char 				*str;
+
+	tmp = num;
+	str = 0;
+	count = 0;
+	if (num == 0)
+		return (ft_strdup("0"));
+	while (num != 0)
+	{
+		num = num / base;
+		count++;
+	}
+	str = (char *)malloc(sizeof(char) * (count + 1));
+	if (!str)
+		return (0);
+	str[count] = '\0';
+	str = ft_base(tmp, base, count, str);
+	return (str);
 }
