@@ -15,13 +15,13 @@ static int	ft_nbrlen (int n)
 	return (i);
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa(int nbr)
 {
 	char	*str;
 	int		len;
+	long	n;
 
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
+	n = nbr;
 	len = ft_nbrlen(n);
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)

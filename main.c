@@ -30,13 +30,30 @@ int main(void)
 //
 //	printf("   printf=%0*.*u= test\n", 16, 12, 2147483648);
 //	ft_printf("ft_printf=%0*.*u= test\n", 16, 12, 2147483648);
-//
-//	printf("   printf=%*.*x= test\n", 16, 12, 83648);
-//	ft_printf("ft_printf=%*.*x= test\n", 16, 12, 83648);
 
-	printf("   printf=%10.5i||\n", -216);
-	ft_printf("ft_printf=%10.5i||\n", -216);
+//	printf("%-70.193x%-140c%168c%026.51%%0125.119X\n" ,1102840003u,-50,-17,
+//		3721437512u);
+//	ft_printf("%-70.193x%-140c%168c%026.51%%0125.119X\n" ,1102840003u,-50,-17,
+//			  3721437512u);
+	printf("%% *.5i 42 == |% *.5i|\n", 4, 42);
+	ft_printf("%% *.5i 42 == |% *.5i|\n", 4, 42);
 
+	printf("%.*d||\n", -4, -12);
+	ft_printf("%.*d||\n", -4, -12);
+
+	printf("%07i||\n", -54);
+	ft_printf("%07i||\n", -54);
+
+	printf("%7i||\n", -14);
+	ft_printf("%7i||\n", -14);
+
+	printf("   printf=%d||\n", -2147483648);
+	ft_printf("ft_printf=%d||\n", -2147483648);
+
+	printf("this %i number\n", -267);
+	ft_printf("this %i number\n", -267);
+	//while (1);
 //	printf("   printf=%07i||\n", -54);
-//	ft_printf("ft_printf=%07i||\n", -54);
+//	f
+//	t_printf("ft_printf=%07i||\n", -54);
 }
