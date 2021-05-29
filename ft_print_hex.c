@@ -11,9 +11,9 @@ static int 	ft_print(char *str, t_flags flags)
 	return (count);
 }
 
-static int  ft_print_dig1(char *str, t_flags flags)
+static int	ft_print_dig1(char *str, t_flags flags)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	if (flags.minus == 1)
@@ -32,11 +32,11 @@ static int  ft_print_dig1(char *str, t_flags flags)
 	return (count);
 }
 
-int         ft_print_hex(unsigned int d, int xX, t_flags flags)
+int	ft_print_hex(unsigned int d, int xX, t_flags flags)
 {
-	int 	count;
-	char 	*str;
-	int 	i;
+	int		count;
+	char	*str;
+	int		i;
 
 	count = 0;
 	i = 0;
@@ -55,4 +55,3 @@ int         ft_print_hex(unsigned int d, int xX, t_flags flags)
 	free(str);
 	return (count);
 }
-

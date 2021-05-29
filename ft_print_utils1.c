@@ -1,8 +1,19 @@
 #include "ft_printf.h"
 
+int	ft_check_type(int c)
+{
+	return ((c == 'c') || (c == 's') || (c == 'p') || (c == 'd') || (c == 'i')
+		|| (c == 'u') || (c == 'x') || (c == 'X') || (c == '%'));
+}
+
+int	ft_check_flag(int c)
+{
+	return ((c == '.') || (c == '*') || (c == '0') || (c == '-') || (c == ' '));
+}
+
 static int	ft_nbrlen(long n)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (n <= 0)
@@ -19,7 +30,7 @@ char	*ft_itoa_u(unsigned int n)
 {
 	char	*str;
 	int		len;
-	long 	nbr;
+	long	nbr;
 
 	nbr = n;
 	len = ft_nbrlen(nbr);
@@ -42,4 +53,3 @@ char	*ft_itoa_u(unsigned int n)
 	}
 	return (str);
 }
-

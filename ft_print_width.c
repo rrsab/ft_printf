@@ -1,19 +1,18 @@
 #include "ft_printf.h"
 
-int ft_print_width(int width, int precision, int zero)
+int	ft_print_width(int width, int precision, int zero)
 {
-    int count;
+	int	count;
 
-    count = 0;
-    while (width > precision)
-    {
-        if (zero)
-            ft_putchar('0');
-        else
-            ft_putchar(' ');
-        width--;
-        count++;
-    }
-    return (count);
+	count = 0;
+	while (width > precision)
+	{
+		if (zero)
+			ft_putchar('0');
+		else
+			ft_putchar(' ');
+		width--;
+		count++;
+	}
+	return (count);
 }
-

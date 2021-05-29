@@ -1,33 +1,36 @@
 #include "ft_printf.h"
 
-int			ft_putchar(char c)
+int	ft_putchar(char c)
 {
-    return write(1, &c, 1);
+	return (write(1, &c, 1));
 }
 
-int			ft_putstr_precision(char *str, int precision)
+int	ft_putstr_precision(char *str, int precision)
 {
-    int	res;
+	int	res;
 
-    if (!str)
-        return (0);
-    res = 0;
-    while (*str && res < precision)
-    {
-        res += ft_putchar(*str);
-        str++;
-    }
-    return (res);
+	if (!str)
+		return (0);
+	res = 0;
+	while (*str && res < precision)
+	{
+		res += ft_putchar(*str);
+		str++;
+	}
+	return (res);
 }
 
 static char	*ft_base(unsigned long long num, int base, int count, char *str)
 {
+	unsigned long long	tmp;
+
 	while (num != 0)
 	{
-		if (( num % base) < 10)
-			str[count - 1] = (num % base) + 48;
+		tmp = num % base;
+		if (tmp < 10)
+			str[count - 1] = tmp + 48;
 		else
-			str[count - 1] = (num % base) + 55;
+			str[count - 1] = tmp + 55;
 		num = num / base;
 		count--;
 	}
@@ -37,8 +40,8 @@ static char	*ft_base(unsigned long long num, int base, int count, char *str)
 char	*ft_itoa_base(unsigned long long num, int base)
 {
 	unsigned long long	tmp;
-	int 				count;
-	char 				*str;
+	int					count;
+	char				*str;
 
 	tmp = num;
 	str = 0;

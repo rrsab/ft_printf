@@ -8,8 +8,7 @@ static int 	ft_print(char *str, int d, t_flags flags)
 	if (d < 0 && flags.precision >= 0)
 	{
 		count += ft_putchar('-');
-		count += ft_print_width(flags.precision, ft_strlen(str) - 1, 1);
-		str++;
+		count += ft_print_width(flags.precision, ft_strlen(str), 1);
 		count += ft_putstr_precision(str, ft_strlen(str));
 		return (count);
 	}
@@ -19,10 +18,9 @@ static int 	ft_print(char *str, int d, t_flags flags)
 	return (count);
 }
 
-
-static int  ft_print_dig1(char *str, int d, t_flags flags)
+static int	ft_print_dig1(char *str, int d, t_flags flags)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	if (flags.minus == 1)
@@ -43,23 +41,28 @@ static int  ft_print_dig1(char *str, int d, t_flags flags)
 	return (count);
 }
 
-int         ft_print_digit(int d, t_flags flags)
+int	ft_print_digit(int d, t_flags flags)
 {
-	int 	count;
-	char 	*str;
+	int		count;
+	char	*str;
+	long	nbr;
 
 	count = 0;
+	nbr = d;
 	if (flags.precision == 0 && d == 0)
 		return (ft_print_width(flags.width, 0, 0));
-	if (d < 0 && (flags.precision < 0 || flags.zero == 1))
+	if (d < 0 && (flags.precision >= 0 || flags.zero == 1))
+	{
 		if (flags.zero == 1 && flags.precision < 0)
-			{
-				count += ft_putchar('-');
-				flags.width--;
-			}
-	str = ft_itoa(d);
+		{
+			count += ft_putchar('-');
+			flags.width--;
+		}
+		flags.zero = 1;
+		nbr *= -1;
+	}
+	str = ft_itoa(nbr);
 	count += ft_print_dig1(str, d, flags);
 	free(str);
 	return (count);
 }
-
