@@ -1,6 +1,6 @@
 NAME	= libft.a
 
-SRCS	= ft_atoi.c ft_isdigit.c ft_itoa.c ft_strlen.c ft_tolower.c ft_strdup.c
+SRCS	= ft_isdigit.c ft_itoa.c ft_strlen.c ft_tolower.c ft_strdup.c
 
 OBJS	= $(patsubst %.c, %.o, $(SRCS))
 
