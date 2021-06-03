@@ -60,7 +60,7 @@ int	ft_print_pointer(unsigned long long pointer, t_flags flags)
 		flags.precision = ft_strlen(pt);
 	if (flags.minus == 1)
 		count += ft_print(pt, flags);
-	count += ft_print_width(flags.width, ft_strlen(pt) + 2, 0);
+	count += ft_print_width(flags.width, flags.precision + 2, 0);
 	if (flags.minus == 0)
 		count += ft_print(pt, flags);
 	free(pt);
